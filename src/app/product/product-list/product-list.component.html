@@ -1,0 +1,24 @@
+<h3>Products</h3>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Owner</th>
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody *ngIf="products">
+        <tr *ngFor="let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td *ngIf="p.teamMember">{{p.teamMember.name ? p.teamMember.name : "None"}}</td>
+            <td>
+                <button routerLink="/product/detail/{{p.id}}">Detail</button>
+                <button routerLink="/product/edit/{{p.id}}">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button routerLink="/product/create">New Product</button>

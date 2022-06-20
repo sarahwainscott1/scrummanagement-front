@@ -1,0 +1,33 @@
+<h3>Team Detail</h3>
+<h4>Team Members</h4>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Strengths</th>
+            <th>Actions</th>
+            
+        </tr>
+    </thead>
+    <tbody *ngIf="team">
+        <tr *ngFor="let x of team.teamList">
+            <td>{{x.teamMember.id}}</td>
+            <td>{{x.teamMember.name}}</td>
+            <td>{{x.teamMember.email}}</td>
+            <td>{{x.teamMember.role}}</td>
+            <td >
+                <ul *ngFor="let s of x.teamMember.strengthList">
+                    <li style="list-style-type: none;">{{s.strength.strengthName}}</li>
+                </ul>
+            </td>
+            <td>
+                <button routerLink="/teammember/edit/{{x.teamMember.id}}">Edit</button>
+                <button routerLink="/teammember/detail/{{x.teamMember.id}}">Details</button>
+                <button *ngIf="isSM || user === x.id" routerLink="/teammember/coaching/{{x.id}}">Coaching</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

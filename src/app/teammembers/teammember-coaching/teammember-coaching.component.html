@@ -1,0 +1,40 @@
+<h3>Team Member Coaching</h3>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="teamMember">
+        <tr>
+            <td>{{teamMember.id}}</td>
+            <td>{{teamMember.name}}</td>
+            <td>{{teamMember.email}}</td>
+            <td>{{teamMember.role}}</td>
+        </tr>
+    </tbody>
+</table>
+<h4>Coaching</h4>
+<table class="table table-sm table-striped">
+    <thead>
+        <th>Coaching Id</th>
+        <th>Reason</th>
+        <th>Outcome</th>
+        <th *ngIf="isSM">Actions</th>
+    </thead>
+    <tbody *ngIf="teamMember">
+        <tr *ngFor="let x of teamMember.coach">
+            <td>{{x.id}}</td>
+            <td>{{x.reason}}</td>
+            <td>{{x.outcome}}</td>
+            <td *ngIf="isSM">
+                <button routerLink="/coach/edit/{{x.id}}">Edit</button>
+                <button (click)="remove(x.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button *ngIf="teamMember && isSM" routerLink="/coach/create/{{teamMember.id}}">Add Coaching</button>

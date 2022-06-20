@@ -1,0 +1,68 @@
+<h3>Add Strengths</h3>
+<table class="table table-sm table-striped">
+    <tbody>
+        <tr>
+            <th>Strength</th>
+            <td>
+                <select [(ngModel)]="strengthlist1.strengthId">
+                    <option *ngFor="let s of strengths" [value]="s.id">{{s.strengthName}}</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-sm table-striped" *ngIf="show2">
+    <tbody>
+        <tr>
+            <th>Strength</th>
+            <td>
+                <select [(ngModel)]="strengthlist2.strengthId">
+                    <option *ngFor="let s of strengths" [value]="s.id">{{s.strengthName}}</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-sm table-striped" *ngIf="show3">
+    <tbody>
+        <tr>
+            <th>Strength</th>
+            <td>
+                <select [(ngModel)]="strengthlist3.strengthId">
+                    <option *ngFor="let s of strengths" [value]="s.id">{{s.strengthName}}</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-sm table-striped" *ngIf="show4">
+    <tbody>
+        <tr>
+            <th>Strength</th>
+            <td>
+                <select [(ngModel)]="strengthlist4.strengthId">
+                    <option *ngFor="let s of strengths" [value]="s.id">{{s.strengthName}}</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-sm table-striped" *ngIf="show5">
+    <tbody>
+        <tr>
+            <th>Strength</th>
+            <td>
+                <select [(ngModel)]="strengthlist5.strengthId">
+                    <option *ngFor="let s of strengths" [value]="s.id">{{s.strengthName}}</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <button *ngIf="!show2"(click)="add2()">Add Another</button>
+    <button *ngIf="show2 && !show3" (click)="add3()">Add Another</button>
+    <button *ngIf="show3 && !show4" (click)="add4()">Add Another</button>
+    <button *ngIf="show4 && !show5" (click)="add5()">Add Another</button>
+</div>
+<button *ngIf="show5" (click)="save()">Save</button>

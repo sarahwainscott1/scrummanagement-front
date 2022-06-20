@@ -1,0 +1,67 @@
+<h3>Product Detail</h3>
+<table class="table table-sm table-striped>">
+    <tbody *ngIf="product">
+        <tr>
+            <th>Product Id</th>
+            <td>{{product.id}}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{product.name}}</td>
+        </tr>
+        <tr>
+            <th>Product Owner</th>
+            <td>{{product.teamMember.name}}</td>
+        </tr>
+        <tr>
+            <th>Stories</th>
+            <td>
+                <table class="table table-sm table-striped">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Feature</th>
+                            <th>Value</th>
+                            <th>Importance</th>
+                            <th>Estimated Points</th>
+                            <th>Actual Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let s of product.stories">
+                            <td>{{s.user}}</td>
+                            <td>{{s.feature}}</td>
+                            <td>{{s.value}}</td>
+                            <td>{{s.importance}}</td>
+                            <td>{{s.estimatedPoints}}</td>
+                            <td>{{s.actualTime}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <th>Sprints</th>
+            <td>
+                <table class="table table-sm table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sprint Id</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let sp of product.sprints">
+                            <td>{{sp.id}}</td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </td>
+        
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="product">
+<button  routerLink="/product/edit/{{product.id}}">Edit Product</button>
+<button routerLink="/story/create/{{product.id}}">Add Story</button>
+</div>

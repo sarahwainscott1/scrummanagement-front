@@ -1,0 +1,22 @@
+<h3>New Coaching</h3>
+<table class="table table-sm table-striped">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td><input disabled type="number" [(ngModel)]="coach.id" name="id"></td>
+        </tr>
+        <tr >
+            <th>Team Member</th>
+            <td><input disabled type="text" [(ngModel)]="person"></td>
+        </tr>
+        <tr>
+            <th>Reason</th>
+            <td><input type="text" [(ngModel)]="coach.reason" name="reason"></td>
+        </tr>
+        <tr>
+            <th>Outcome</th>
+            <td><input type="text" [(ngModel)]="coach.outcome"  name="outcome"></td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="save()">Save</button>

@@ -1,0 +1,21 @@
+<form>
+    <h3>Member Login</h3>
+    <table class="table table-sm" id="loginT">
+        <thead>
+            <tr>
+                <th>Email:</th>
+                <th>Password:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" [(ngModel)]="email" name="email" placeholder="Email"></td>
+                <td><input type="password" [(ngModel)]="password" name="password" placeholder="Password"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="login">
+    <button (click)="login()">Login</button>
+    </div>
+    <div id="error" *ngIf="message">{{message}}</div>
+</form>

@@ -1,0 +1,38 @@
+<h3>Team Member Detail</h3>
+<table class="table table-sm table-striped">
+    <tbody *ngIf="teamMember">
+        <tr>
+            <th>Id</th>
+            <td>{{teamMember.id}}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{teamMember.name}}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{teamMember.email}}</td>
+        </tr>
+        <tr>
+            <th>Role</th>
+            <td>{{teamMember.role}}</td>
+        </tr>
+        <tr>
+            <th>Strengths</th>
+            <td *ngIf="teamMember.strengthList; else elseBlock">
+                <ul *ngFor="let s of teamMember.strengthList">
+                <li>{{s.strength.strengthName}}</li>
+            </ul>
+            </td>
+            <ng-template #elseBlock><button routerLink="/strenglist/create/{{teamMember.id}}">Add strengthList</button></ng-template>
+        </tr>
+        <tr>
+        
+            <th>Actions</th>
+            <td>
+                <button routerLink="/teammember/edit/{{teamMember.id}}">Edit</button>
+                <button (click)="deactivate()">Deactivate</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

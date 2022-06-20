@@ -1,0 +1,22 @@
+<h3>Add Person to Team</h3>
+<table class="table table-sm table-striped">
+    <tbody>
+        <tr>
+            <th>Person</th>
+            <td>
+                <select [(ngModel)]="teamList.teamMemberId">
+                    <option *ngFor="let p of people" [value]="p.id">{{p.name}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Team</th>
+            <td>
+                <select [(ngModel)]="teamList.teamId">
+                    <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="save()">Save</button>

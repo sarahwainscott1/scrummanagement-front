@@ -1,0 +1,33 @@
+<h3>New Team Member</h3>
+<table class="table table-sm table-striped">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td><input disabled type="number" [(ngModel)]="teamMember.id" name="id"></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td><input type="text" [(ngModel)]="teamMember.name" name="name"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="text" [(ngModel)]="teamMember.email" name="email"></td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td><input type="text" [(ngModel)]="teamMember.password" name="password"></td>
+        </tr>
+        <tr>
+            <th>Role</th>
+            <td>
+                <select [(ngModel)]="teamMember.role">
+                    <option value="Developer">Developer</option>
+                    <option value="Scrum Master">Scrum Master</option>
+                    <option value="Product Owner">Product Owner</option>
+                </select>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+<button (click)="save()">Save</button>

@@ -1,0 +1,23 @@
+<h3>New Product</h3>
+<table class="table table-sm table-striped">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td><input disabled type="number" [(ngModel)]="product.id" name="id"></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td><input type="text" [(ngModel)]="product.name" name="name"></td>
+        </tr>
+        <tr>
+            <th>Product Owner</th>
+            <td>
+                <select [(ngModel)]="product.teamMemberId">
+                    <option *ngFor="let p of people" [value]="p.id">{{p.name}}</option>
+                </select>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<button (click)="save()">Save</button>

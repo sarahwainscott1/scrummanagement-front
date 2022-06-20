@@ -1,0 +1,25 @@
+<h3>Teams</h3>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+        <th>Team Name</th>
+        <th>Team Members</th>
+        <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let team of teams">
+            <td>{{team.name}}</td>
+            <td *ngIf="team.teamList">
+                <ul *ngFor="let x of team.teamList">
+                    <li style="list-style-type: none;">{{x.teamMember.name}}</li>
+                </ul>
+            </td>
+            <td>
+                <button routerLink="/team/detail/{{team.id}}">Detail</button>
+                <button (click)="remove(team.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button routerLink="/team/create">New Team</button>
