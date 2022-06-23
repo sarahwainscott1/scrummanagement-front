@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/product/product.class';
 import { ProductService } from 'src/app/product/product.service';
 import { Story } from '../story.class';
@@ -17,14 +17,17 @@ product!: Product;
   constructor(
     private ssvc: StoryService,
     private route: ActivatedRoute,
-    private psvc: ProductService
+    private psvc: ProductService,
+    private router: Router
   ) { }
 
-    save() : void {
-      this.ssvc.create(this.story).subscribe({
-        next: (res) => {console.debug("Story Created");},
-        error: (err) => {console.error(err);}
-      });
+  save() : void {
+    console.debug(this.story);
+    this.ssvc.create(this.story).subscribe({
+      next: (res) => {console.debug("Story Created");
+      this.router.navigateByUrl(`/product/detail/${this.product.id}`)},
+      error: (err) => {console.error(err);}
+    });
     }
   ngOnInit(): void {
     let pId: number = +this.route.snapshot.params["id"];

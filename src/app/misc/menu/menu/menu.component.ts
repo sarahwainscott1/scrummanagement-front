@@ -14,8 +14,7 @@ export class MenuComponent implements OnInit {
     new Menu("Login", "/teammember/login"),
     new Menu("Teams", "/team/list"),
     new Menu("My Team", `/myteam/${this.userid}`),
-    new Menu("Products", "/product/list"),
-    new Menu("Sprints", "/sprint/list")
+    new Menu("Products", "/product/list")
   ]
   
   constructor(

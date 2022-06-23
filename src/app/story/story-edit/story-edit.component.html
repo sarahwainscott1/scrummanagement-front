@@ -1,1 +1,38 @@
-<p>story-edit works!</p>
+<h3>Edit Story</h3>
+<table class="table table-sm table-striped">
+    <tbody>
+        <tr>
+            <th>User</th>
+            <td><input type="text" [(ngModel)]="story.user" name="user"></td>
+        </tr>
+        <tr>
+            <th>Feature</th>
+            <td><input type="text" [(ngModel)]="story.feature" name="feature"></td>
+        </tr>
+        <tr>
+            <th>Value</th>
+            <td><input type="text" [(ngModel)]="story.value" name="value"></td>
+        </tr>
+        <tr>
+            <th>Importance</th>
+            <td>
+                <select [(ngModel)]="story.importance">
+                    <option value="Critical">Critical</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                    <option value="Not Needed">Not Needed</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Estimated Points</th>
+            <td><input type="number" [(ngModel)]="story.estimatedPoints"></td>
+        </tr>
+        <tr>
+            <th>Actual Time</th>
+            <td><input type="number" [(ngModel)]="story.actualTime"></td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="save()">Save</button>

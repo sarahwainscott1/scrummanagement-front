@@ -25,6 +25,7 @@
                             <th>Importance</th>
                             <th>Estimated Points</th>
                             <th>Actual Time</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,9 @@
                             <td>{{s.importance}}</td>
                             <td>{{s.estimatedPoints}}</td>
                             <td>{{s.actualTime}}</td>
+                            <td>
+                                <button routerLink="/story/edit/{{s.id}}">Edit</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -47,12 +51,25 @@
                     <thead>
                         <tr>
                             <th>Sprint Id</th>
-                            <th></th>
+                            <th>Sprint Length</th>
+                            <th>Max Points</th>
+                            <th>Total Points</th>
+                            <th>Remaining Points</th>
+                            <th>Total Time</th>
+                            <th>Stories</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let sp of product.sprints">
                             <td>{{sp.id}}</td>
+                            <td>{{sp.sprintLength}}</td>
+                            <td>{{sp.maxPoints}}</td>
+                            <td>{{sp.totalPoints}}</td>
+                            <td>{{sp.remainingPoints}}</td>
+                            <td>{{sp.totalTime}}</td>
+                            <td>
+                                <button routerLink="/sprint/detail/{{sp.id}}">Stories</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table> 
@@ -64,4 +81,5 @@
 <div *ngIf="product">
 <button  routerLink="/product/edit/{{product.id}}">Edit Product</button>
 <button routerLink="/story/create/{{product.id}}">Add Story</button>
+<button routerLink="/sprint/create/{{product.id}}">New Sprint</button>
 </div>

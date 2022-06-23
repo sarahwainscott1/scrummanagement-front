@@ -12,7 +12,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductDetailComponent implements OnInit {
 product!: Product;
-stories!: Story[];
+
   constructor(
     private psvc: ProductService,
     private route: ActivatedRoute,
@@ -22,7 +22,8 @@ stories!: Story[];
   ngOnInit(): void {
     let id: number = +this.route.snapshot.params["id"];
     this.psvc.detail(id).subscribe({
-      next: (res) => {this.product = res;},
+      next: (res) => {this.product = res;
+      console.debug(res);},
       error: (err) => {console.error(err);}
     });
   

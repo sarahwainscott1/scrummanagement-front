@@ -1,1 +1,83 @@
-<p>sprint-detail works!</p>
+<h3>Sprint Detail</h3>
+<table class="table table-sm table-striped" *ngIf="sprint">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Sprint Id</th>
+            <th>Sprint Length</th>
+            <th>Max Points</th>
+            <th>Total Points</th>
+            <th>Remaining Points</th>
+            <th>Total Time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="sprint && product">
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{sprint.id}}</td>
+            <td>{{sprint.sprintLength}}</td>
+            <td>{{sprint.maxPoints}}</td>
+            <td>{{sprint.totalPoints}}</td>
+            <td>{{sprint.remainingPoints}}</td>
+            <td>{{sprint.totalTime}}</td>
+            <td><button routerLink="/sprint/edit/{{sprint.id}}">Edit</button></td>
+        </tr>
+    </tbody>
+</table>
+<h4>Stories</h4>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Feature</th>
+            <th>Value</th>
+            <th>Importance</th>
+            <th>Estimated Points</th>
+            <th>Actual Time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="sprint?.sprintLists">
+        <tr *ngFor="let s of sprint.sprintLists">
+            <td>{{s.story.user}}</td>
+            <td>{{s.story.feature}}</td>
+            <td>{{s.story.value}}</td>
+            <td>{{s.story.importance}}</td>
+            <td>{{s.story.estimatedPoints}}</td>
+            <td>{{s.story.actualTime}}</td>
+            <td>
+                <button routerLink="/story/edit/{{s.id}}">Edit</button>
+                <button (click)="removeFromSprint(s.id)">Remove from Sprint</button>
+            </td>
+        </tr>
+        
+    </tbody>
+    
+</table>
+<button (click)="showAdd()">Add Story to Sprint</button>
+<div *ngIf="showList">
+    <select [(ngModel)]="sprintList.storyId" *ngIf="this.stories.length > 0; else elseBlock">
+        <option  *ngFor="let s of stories" [value]="s.id">
+            
+                        User: {{s.user}} |  
+                        Feature: {{s.feature}} | 
+                        Value: {{s.value}} | 
+                        Importance: {{s.importance}} | 
+                        Extimated Points: {{s.estimatedPoints}}
+                  
+            </option>
+    </select>
+    <button (click)="saveToSprint(sprint.id)" *ngIf="this.stories.length > 0" >Save to Sprint</button>
+</div>
+<ng-template #elseBlock>
+    <table class="table table-sm">
+        <tr>
+            <td>No Unassigned Stories on Product</td>
+            <td>
+                <button *ngIf="product" routerLink="/story/create/{{product.id}}">Add Story to Product</button>
+            </td>
+        </tr>
+    </table>
+</ng-template>
+ 

@@ -6,7 +6,7 @@ export class Story {
     user: string = "";
     feature: string = "";
     value: string = "";
-    importance: number = 0;
+    importance: string = "";
     estimatedPoints: number = 0;
     actualTime: number = 0;
     sprintId!: number

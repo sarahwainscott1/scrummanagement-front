@@ -7,7 +7,7 @@ import { Sprint } from './sprint.class';
   providedIn: 'root'
 })
 export class SprintService {
-baseurl: string = "http://localhost:5230/api/sprints"
+baseurl: string = "http://localhost:5230/api/sprints/"
   constructor(private http: HttpClient) { }
   list(): Observable<Sprint[]> {
     return this.http.get(`${this.baseurl}`) as Observable<Sprint[]>;

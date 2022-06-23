@@ -1,11 +1,18 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { CreateComponent } from "./coaching/coach-create/create.component";
+import { EditComponent } from "./coaching/edit/edit.component";
 import { ProductCreateComponent } from "./product/product-create/product-create.component";
 import { ProductDetailComponent } from "./product/product-detail/product-detail.component";
 import { ProductEditComponent } from "./product/product-edit/product-edit.component";
 import { ProductListComponent } from "./product/product-list/product-list.component";
+import { SprintCreateComponent } from "./sprint/sprint-create/sprint-create.component";
+import { SprintDetailComponent } from "./sprint/sprint-detail/sprint-detail.component";
+import { SprintEditComponent } from "./sprint/sprint-edit/sprint-edit.component";
+import { SprintListCreateComponent } from "./sprintList/sprint-list-create/sprint-list-create.component";
+import { SprintListEditComponent } from "./sprintList/sprint-list-edit/sprint-list-edit.component";
 import { StoryCreateComponent } from "./story/story-create/story-create.component";
+import { StoryEditComponent } from "./story/story-edit/story-edit.component";
 import { StoryListComponent } from "./story/story-list/story-list.component";
 import { StrengthlistCreateComponent } from "./strengthlist/strengthlist-create/strengthlist-create.component";
 import { StrengthlistEditComponent } from "./strengthlist/strengthlist-edit/strengthlist-edit.component";
@@ -53,9 +60,15 @@ const routes: Routes = [
     {path: "product/detail/:id", component: ProductDetailComponent},
 
     {path: "story/create/:id", component: StoryCreateComponent},
+    {path: "story/edit/:id", component: StoryEditComponent},
     
+    {path: "sprint/create/:id", component: SprintCreateComponent},
+    {path: "sprint/detail/:id", component: SprintDetailComponent},
+    {path: "sprint/edit/:id", component: SprintEditComponent},
 
-
+    {path: "sprintList/create/:id", component: SprintListCreateComponent},
+    {path: "sprintList/edit/:id", component: SprintListEditComponent},
+    
     {path: "**", component: TeammemberListComponent}
 ];
 
