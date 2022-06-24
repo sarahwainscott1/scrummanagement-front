@@ -1,6 +1,6 @@
 <h3>Edit Story</h3>
 <table class="table table-sm table-striped">
-    <tbody>
+    <tbody *ngIf="story">
         <tr>
             <th>User</th>
             <td><input type="text" [(ngModel)]="story.user" name="user"></td>

@@ -1,0 +1,29 @@
+form {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+   
+}
+#loginT {
+    margin:auto;
+    margin-top: 100px;
+    border: solid 2px black;
+    padding: 20px;
+    border-radius: 7px;
+    margin-bottom: 40px;
+    background-color: rgb(189, 172, 199);
+}
+td{
+    margin: 10px;
+    padding: 10px;;
+}
+input {
+    border-radius: 7px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: rgb(239, 233, 241);
+}
+th {
+    padding-top: 10px;
+    
+}

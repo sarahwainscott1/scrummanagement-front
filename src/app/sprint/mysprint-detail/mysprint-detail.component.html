@@ -1,0 +1,60 @@
+<h3>Current Sprint</h3>
+
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Sprint Id</th>
+            <th>Sprint Length</th>
+            <th>Max Points</th>
+            <th>Total Points</th>
+            <th>Remaining Points</th>
+            <th>Total Time</th>
+            <th>Actions</th>
+            <th>Stories</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="sprints">
+        <tr *ngFor="let sprint of sprints">
+            <td>{{sprint.product.name}}</td>
+            <td>{{sprint.id}}</td>
+            <td>{{sprint.sprintLength}}</td>
+            <td>{{sprint.maxPoints}}</td>
+            <td>{{sprint.totalPoints}}</td>
+            <td>{{sprint.remainingPoints}}</td>
+            <td>{{sprint.totalTime}} hours</td>
+            <td>
+                <button routerLink="/sprint/edit/{{sprint.id}}">Edit</button>
+                <button routerLink="/sprint/detail/{{sprint.id}}">Details</button>
+            </td>
+            <td>
+               <table class="table table-sm table-striped">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Feature</th>
+                        <th>Value</th>
+                        <th>Importance</th>
+                        <th>Estimated Points</th>
+                        <th>Actual Time</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let list of sprint.sprintLists">
+                        <td>{{list.story.user}}</td>
+                        <td>{{list.story.feature}}</td>
+                        <td>{{list.story.value}}</td>
+                        <td>{{list.story.importance}}</td>
+                        <td>{{list.story.estimatedPoints}}</td>
+                        <td>
+                            {{list.story.actualTime}} | 
+                            <button routerLink="/story/edit/{{list.story.id}}">Update Time</button>
+                        </td>
+                    </tr>
+                </tbody>
+               </table> 
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -40,6 +40,7 @@ import { StoryListComponent } from './story/story-list/story-list.component';
 import { StoryDetailComponent } from './story/story-detail/story-detail.component';
 import { SprintListEditComponent } from './sprintList/sprint-list-edit/sprint-list-edit.component';
 import { SprintListCreateComponent } from './sprintList/sprint-list-create/sprint-list-create.component';
+import { MysprintDetailComponent } from './sprint/mysprint-detail/mysprint-detail.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { SprintListCreateComponent } from './sprintList/sprint-list-create/sprin
     StoryListComponent,
     StoryDetailComponent,
     SprintListEditComponent,
-    SprintListCreateComponent
+    SprintListCreateComponent,
+    MysprintDetailComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, RouterModule

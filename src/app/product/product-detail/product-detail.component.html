@@ -14,6 +14,10 @@
             <td>{{product.teamMember.name}}</td>
         </tr>
         <tr>
+            <th>Teams</th>
+            <td *ngFor="let t of product.teams">{{t.name ? t.name : "None"}}</td>
+        </tr>
+        <tr>
             <th>Stories</th>
             <td>
                 <table class="table table-sm table-striped">
@@ -51,17 +55,20 @@
                     <thead>
                         <tr>
                             <th>Sprint Id</th>
+                            <th>Status</th>
                             <th>Sprint Length</th>
                             <th>Max Points</th>
                             <th>Total Points</th>
                             <th>Remaining Points</th>
                             <th>Total Time</th>
                             <th>Stories</th>
+                            <th>Update Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let sp of product.sprints">
                             <td>{{sp.id}}</td>
+                            <td>{{sp.status}}</td>
                             <td>{{sp.sprintLength}}</td>
                             <td>{{sp.maxPoints}}</td>
                             <td>{{sp.totalPoints}}</td>
@@ -69,6 +76,11 @@
                             <td>{{sp.totalTime}}</td>
                             <td>
                                 <button routerLink="/sprint/detail/{{sp.id}}">Stories</button>
+                            </td>
+                            <td>
+                                <button (click)="inProgress(sp)">In Progress</button>
+                                <button (click)="concluded(sp)">Concluded</button>
+                                <button (click)="cancelled(sp)">Cancelled</button>
                             </td>
                         </tr>
                     </tbody>

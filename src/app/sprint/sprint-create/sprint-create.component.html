@@ -22,9 +22,12 @@
             <td><input type="number" [(ngModel)]="sprint.remainingPoints" name="remainingPoints"></td>
         </tr>
         <tr>
-            <th>Total Time</th>
-            <td><input disabled type="number" [(ngModel)]="sprint.totalTime" name="totalTime"></td>
-        </tr>
+            <th>Team</th>
+            <td>
+                <select [(ngModel)]="sprint.teamId">
+                    <option *ngFor="let t of product.teams" [value]="t.id">{{t.name}}</option>
+                </select>
+            </td>
     
     </tbody>
 </table>

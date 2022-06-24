@@ -20,7 +20,7 @@ story!: Story;
     save(): void {
       this.stsvc.change(this.story).subscribe({
         next: (res) => {console.debug("Story changed");
-        this.router.navigateByUrl(`/product/detail/${this.story.productId}`)},
+          this.router.navigateByUrl(`/product/detail/${this.story.productId}`)},
         error: (err) => {console.error(err);}
       });
     }

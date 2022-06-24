@@ -2,15 +2,19 @@ li {
     list-style-type: none;
     padding: 10px;
     display: inline-block;
-    border: 1px solid black;
+    
 
 }
 a {
     text-decoration: none;
     color: white;
 }
+a:hover {
+    background-color: rgb(101, 59, 126);
+    padding: 10px;
+}
 ul {
     padding: 0px;
     margin: 0px;
-    background-color: gray;
+    background-color:rgb(135, 78, 168)
 }
