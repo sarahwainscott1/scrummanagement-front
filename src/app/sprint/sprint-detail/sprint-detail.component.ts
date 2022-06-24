@@ -67,7 +67,7 @@ sprintList: SprintList = new SprintList();
         this.prsvc.detail(this.sprint.productId).subscribe({
           next: (resP) => {this.product = resP;
             this.stsvc.getUnassigned(this.product.id,this.sprint.id).subscribe({
-              next: (res) => {this.stories = res},
+              next: (res) => {this.stories = res;},
               error: (err) => {console.error(err);}
             });
           },

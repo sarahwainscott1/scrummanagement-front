@@ -1,4 +1,5 @@
-<h3>Team Detail</h3>
+<h3 *ngIf="team">{{team.name}} Detail</h3>
+
 <h4>Team Members</h4>
 <table class="table table-sm table-striped">
     <thead>
@@ -31,3 +32,70 @@
         </tr>
     </tbody>
 </table>
+<button (click)="showAdd()">Add Team Members</button>
+<table class="table table-sm table-striped">
+    <tbody *ngIf="show">
+        <tr>
+        <select  [(ngModel)]="teamList1.teamMemberId" name="teamMemberId">
+            <option *ngFor="let person of teammembers" [value]="person.id">{{person.name}} | {{person.role}} </option>
+        </select>
+        <button (click)="add2()">Add Another</button>
+        </tr>
+        <tr *ngIf="show2">
+            <select  [(ngModel)]="teamList2.teamMemberId" name="teamMemberId">
+                <option *ngFor="let person of teammembers" [value]="person.id">{{person.name}} | {{person.role}} </option>
+            </select>
+            <button (click)="add3()">Add Another</button>
+        </tr>
+        <tr *ngIf="show3">
+            <select  [(ngModel)]="teamList3.teamMemberId" name="teamMemberId">
+                <option *ngFor="let person of teammembers" [value]="person.id">{{person.name}} | {{person.role}} </option>
+            </select>
+            <button (click)="add4()">Add Another</button>
+        </tr>
+        <tr *ngIf="show4">
+            <select  [(ngModel)]="teamList4.teamMemberId" name="teamMemberId">
+                <option *ngFor="let person of teammembers" [value]="person.id">{{person.name}} | {{person.role}} </option>
+            </select>
+            <button (click)="add5()">Add Another</button>
+        </tr>
+        <tr *ngIf="show5">
+            <select  [(ngModel)]="teamList5.teamMemberId" name="teamMemberId">
+                <option *ngFor="let person of teammembers" [value]="person.id">{{person.name}} | {{person.role}} </option>
+            </select>
+            <button (click)="add6()">Add Another</button>
+        </tr>
+        <tr *ngIf="show6">
+            <select  [(ngModel)]="teamList6.teamMemberId" name="teamMemberId">
+                <option *ngFor="let person of teammembers" [value]="person.id">{{person.name}} | {{person.role}} </option>
+            </select>
+            <button (click)="add7()">Add Another</button>
+        </tr>
+        <tr *ngIf="show7">
+            <select  [(ngModel)]="teamList7.teamMemberId" name="teamMemberId">
+                <option *ngFor="let person of teammembers" [value]="person.id">{{person.name}} | {{person.role}} </option>
+            </select>
+            <button (click)="add8()">Add Another</button>
+        </tr>
+        <tr *ngIf="show8">
+            <select  [(ngModel)]="teamList8.teamMemberId" name="teamMemberId">
+                <option *ngFor="let person of teammembers" [value]="person.id">{{person.name}} | {{person.role}} </option>
+            </select>
+            <button (click)="add9()">Add Another</button>
+        </tr>
+        <tr *ngIf="show9">
+            <select  [(ngModel)]="teamList9.teamMemberId" name="teamMemberId">
+                <option *ngFor="let person of teammembers" [value]="person.id">{{person.name}} | {{person.role}} </option>
+            </select>
+            <button (click)="add10()">Add Another</button>
+        </tr>
+        <tr *ngIf="show10">
+            <select  [(ngModel)]="teamList10.teamMemberId" name="teamMemberId">
+                <option *ngFor="let person of teammembers" [value]="person.id">{{person.name}} | {{person.role}} </option>
+            </select>
+    
+        </tr>
+
+    </tbody>
+</table>
+<button *ngIf="show" (click)="save()">Save</button>

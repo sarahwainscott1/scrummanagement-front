@@ -10,6 +10,16 @@
             <Td><input type="text" [(ngModel)]="team.name" name="name"></Td>
         </tr>
         <tr>
+            <th>Product</th>
+            <td *ngIf="products">
+                <select [(ngModel)]="team.productId" name="productId">
+                    <option *ngFor="let p of products" [value]="p.id">
+                        {{p.name}}
+                    </option>
+            </select>
+            </td>
+        </tr>
+        <tr>
             <th>Team Members</th>
             <td>
                 <table class="table table-sm table-striped">

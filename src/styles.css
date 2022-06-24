@@ -1,3 +1,16 @@
 button {
     margin-right: 10px;
+    background-color: rgb(212, 168, 241);
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid 3px white;
+    border-radius: 7px;
+}
+button:hover {
+    background-color: white;
+
+}
+head, body {
+background-color:rgb(196, 144, 226);
 }

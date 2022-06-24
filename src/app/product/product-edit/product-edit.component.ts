@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Team } from 'src/app/team/team.class';
+import { TeamService } from 'src/app/team/team.service';
 import { TeamMember } from 'src/app/teammembers/teammember.class';
 import { TeammemberService } from 'src/app/teammembers/teammember.service';
 import { Product } from '../product.class';
@@ -13,12 +15,14 @@ import { ProductService } from '../product.service';
 export class ProductEditComponent implements OnInit {
   product! : Product;
   people!: TeamMember[];
+  teams!: Team[];
 
   constructor(
     private tmsvc: TeammemberService,
     private route: ActivatedRoute,
     private router: Router,
-    private psvc: ProductService
+    private psvc: ProductService,
+    private teamsvc: TeamService
   ) { }
     save(): void {
       this.psvc.change(this.product).subscribe({
@@ -35,6 +39,10 @@ export class ProductEditComponent implements OnInit {
     });
     this.tmsvc.list().subscribe({
       next: (res) => {this.people = res;},
+      error: (err) => {console.error(err);}
+    });
+    this.teamsvc.list().subscribe({
+      next: (res) => {this.teams = res;},
       error: (err) => {console.error(err);}
     });
   }

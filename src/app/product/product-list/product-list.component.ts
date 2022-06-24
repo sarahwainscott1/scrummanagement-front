@@ -23,7 +23,7 @@ productOwner!: string;
   ngOnInit(): void {
     this.psvc.list().subscribe({
       next: (res) => {this.products = res;
-        
+        console.debug(res);
       },
       error: (err) => {console.error(err);}
     });

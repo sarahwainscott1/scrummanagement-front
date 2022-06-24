@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from 'src/app/product/product.class';
+import { ProductService } from 'src/app/product/product.service';
 import { TeamList } from 'src/app/teamlist/teamlist.class';
 import { TeamlistService } from 'src/app/teamlist/teamlist.service';
 import { TeammemberListComponent } from 'src/app/teammembers/teammember-list/teammember-list.component';
@@ -16,6 +18,7 @@ import { TeamService } from '../team.service';
 export class TeamCreateComponent implements OnInit {
 team: Team = new Team();
 teammembers!: TeamMember[];
+products!: Product[];
 teamList1: TeamList = new TeamList();
 teamList2: TeamList = new TeamList();
 teamList3: TeamList = new TeamList();
@@ -40,7 +43,8 @@ show10: boolean = false;
     private router: Router,
     private route: ActivatedRoute,
     private tmsvc: TeammemberService,
-    private tlsvc: TeamlistService
+    private tlsvc: TeamlistService,
+    private psvc: ProductService
     ) { }
     add2(): void {
       this.show2 = !this.show2!;
@@ -70,6 +74,7 @@ show10: boolean = false;
       this.show10 = !this.show10;
     }
     save(): void {
+      console.debug(this.team);
       this.tsvc.create(this.team).subscribe({
         next: (res) => {console.debug("Team created", res);    
         if(this.teamList1) {
@@ -162,6 +167,10 @@ show10: boolean = false;
   ngOnInit(): void {
     this.tmsvc.list().subscribe({
       next: (res) => {this.teammembers = res;},
+      error: (err) => {console.error(err);}
+    });
+    this.psvc.list().subscribe({
+      next: (res) => {this.products = res;},
       error: (err) => {console.error(err);}
     });
   }

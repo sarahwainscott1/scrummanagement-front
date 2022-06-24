@@ -6,6 +6,7 @@ import { ProductCreateComponent } from "./product/product-create/product-create.
 import { ProductDetailComponent } from "./product/product-detail/product-detail.component";
 import { ProductEditComponent } from "./product/product-edit/product-edit.component";
 import { ProductListComponent } from "./product/product-list/product-list.component";
+import { MysprintDetailComponent } from "./sprint/mysprint-detail/mysprint-detail.component";
 import { SprintCreateComponent } from "./sprint/sprint-create/sprint-create.component";
 import { SprintDetailComponent } from "./sprint/sprint-detail/sprint-detail.component";
 import { SprintEditComponent } from "./sprint/sprint-edit/sprint-edit.component";
@@ -65,6 +66,8 @@ const routes: Routes = [
     {path: "sprint/create/:id", component: SprintCreateComponent},
     {path: "sprint/detail/:id", component: SprintDetailComponent},
     {path: "sprint/edit/:id", component: SprintEditComponent},
+
+    {path: "currentsprint/:id", component: MysprintDetailComponent},
 
     {path: "sprintList/create/:id", component: SprintListCreateComponent},
     {path: "sprintList/edit/:id", component: SprintListEditComponent},
