@@ -41,6 +41,14 @@ import { StoryDetailComponent } from './story/story-detail/story-detail.componen
 import { SprintListEditComponent } from './sprintList/sprint-list-edit/sprint-list-edit.component';
 import { SprintListCreateComponent } from './sprintList/sprint-list-create/sprint-list-create.component';
 import { MysprintDetailComponent } from './sprint/mysprint-detail/mysprint-detail.component';
+import { DailyscrumCreateComponent } from './dailyscrum/dailyscrum-create/dailyscrum-create.component';
+import { DailyscrumDetailComponent } from './dailyscrum/dailyscrum-detail/dailyscrum-detail.component';
+import { DailyscrumEditComponent } from './dailyscrum/dailyscrum-edit/dailyscrum-edit.component';
+import { DailyscrumListComponent } from './dailyscrum/dailyscrum-list/dailyscrum-list.component';
+import { SortPipe } from './misc/pipes/sort.pipe';
+import { TeamSearchPipe } from './misc/pipes/team-search.pipe';
+import { TeamlistSearchPipe } from './misc/pipes/teamlist-search.pipe';
+import { ProductlistSearchPipe } from './misc/pipes/productlist-search.pipe';
 
 @NgModule({
   declarations: [
@@ -79,7 +87,15 @@ import { MysprintDetailComponent } from './sprint/mysprint-detail/mysprint-detai
     StoryDetailComponent,
     SprintListEditComponent,
     SprintListCreateComponent,
-    MysprintDetailComponent
+    MysprintDetailComponent,
+    DailyscrumCreateComponent,
+    DailyscrumDetailComponent,
+    DailyscrumEditComponent,
+    DailyscrumListComponent,
+    SortPipe,
+    TeamSearchPipe,
+    TeamlistSearchPipe,
+    ProductlistSearchPipe
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, RouterModule

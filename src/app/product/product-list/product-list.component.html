@@ -1,9 +1,10 @@
 <h3>Products</h3>
+<input type="text" [(ngModel)]="searchCriteria" placeholder="Search">
 <table class="table table-sm table-striped">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
+            <th><button id="column" class="btn btn-link" (click)="sortFn('id')">Id</button></th>
+            <th><button id="column" class="btn btn-link" (click)="sortFn('name')">Name</button></th>
             <th>Owner</th>
             <th>Team</th>
             <th>Actions</th>
@@ -11,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let p of products">
+        <tr *ngFor="let p of products | sort:sortColumn:sortAsc | productlistSearch:searchCriteria">
             <td>{{p.id}}</td>
             <td>{{p.name}}</td>
             <td *ngIf="p.teamMember">{{p.teamMember.name ? p.teamMember.name : "None"}}</td>

@@ -9,10 +9,22 @@ import { TeamService } from '../team.service';
 })
 export class TeamListComponent implements OnInit {
   teams!: Team[];
+  sortColumn: string = "name";
+  sortAsc: boolean = true;
+  searchCriteria: string = "";
+  
   constructor(
     private tsvc: TeamService,
 
   ) { }
+  sortFn(column: string) :void {
+    if(column ===this.sortColumn) {
+      this.sortAsc = !this.sortAsc;
+      return;
+    }
+    this.sortColumn = column;
+    this.sortAsc = true;
+  }
 remove(id: number): void {
   this.tsvc.remove(id).subscribe({
     next: (res) => {console.debug("Team Deleted");

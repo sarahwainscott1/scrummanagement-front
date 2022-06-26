@@ -14,12 +14,22 @@ export class ProductListComponent implements OnInit {
 products!: Product[];
 team!: TeamMember[];
 productOwner!: string;
+sortColumn: string = "name";
+  sortAsc: boolean = true;
+  searchCriteria: string = "";
 
   constructor(
     private psvc: ProductService,
     private tmsvc: TeammemberService
   ) { }
-
+sortFn(column: string) :void {
+    if(column ===this.sortColumn) {
+      this.sortAsc = !this.sortAsc;
+      return;
+    }
+    this.sortColumn = column;
+    this.sortAsc = true;
+  }
   ngOnInit(): void {
     this.psvc.list().subscribe({
       next: (res) => {this.products = res;

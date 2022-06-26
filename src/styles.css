@@ -14,3 +14,8 @@ button:hover {
 head, body {
 background-color:rgb(196, 144, 226);
 }
+#column {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}

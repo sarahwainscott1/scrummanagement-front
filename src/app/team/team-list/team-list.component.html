@@ -1,14 +1,17 @@
 <h3>Teams</h3>
+<div>
+    <input type="text" id="search" [(ngModel)]="searchCriteria" placeholder="Search Team Name">
+</div>
 <table class="table table-sm table-striped">
     <thead>
         <tr>
-        <th>Team Name</th>
+        <th><button id="column" (click)="sortFn('name')" class="btn btn-link">Team Name</button></th>
         <th>Team Members</th>
         <th>Actions</th>
         </tr>
     </thead>
     <tbody >
-        <tr *ngFor="let team of teams">
+        <tr *ngFor="let team of teams  | sort:sortColumn:sortAsc | teamSearch:searchCriteria ">
             <td>{{team.name}}</td>
             <td *ngIf="team.teamList">
                 <ul *ngFor="let x of team.teamList">
