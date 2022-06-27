@@ -27,7 +27,7 @@
             <td>
                 <button routerLink="/teammember/edit/{{x.teamMember.id}}">Edit</button>
                 <button routerLink="/teammember/detail/{{x.teamMember.id}}">Details</button>
-                <button *ngIf="isSM || userid === x.id" routerLink="/teammember/coaching/{{x.teamMember.id}}">Coaching</button>
+                <button *ngIf="isSM || userid === x.teamMember.id" routerLink="/teammember/coaching/{{x.teamMember.id}}">Coaching</button>
             </td>
         </tr>
     </tbody>

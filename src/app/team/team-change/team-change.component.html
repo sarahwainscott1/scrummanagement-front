@@ -1,1 +1,15 @@
-<p>team-change works!</p>
+<h3>Edit Team</h3>
+<table class="table table-sm table-striped">
+    <tr>
+        <th>Name</th>
+        <td><input type="text" [(ngModel)]="team.name" name="name"></td>
+    </tr>
+    <tr>
+        <th>Product</th>
+        <td><select [(ngModel)]="team.productId">
+                <option *ngFor="let p of products" [value]="p.id">{{p.name}}</option>
+            </select>
+        </td>
+</tr>
+</table>
+<button (click)="save()">Save</button>

@@ -1,3 +1,4 @@
+import { DailyScrum } from "../dailyscrum/dailyscrum.class";
 import { Product } from "../product/product.class";
 import { SprintList } from "../sprintList/sprintList.class";
 import { Team } from "../team/team.class";
@@ -16,5 +17,6 @@ export class Sprint {
     sprintLists! : SprintList[];
     teamId: number = 0;
     team!: Team;
+    dailyScrums!: DailyScrum[];
 
 }

@@ -17,12 +17,7 @@
                 </select>
             </td>
          </tr>
-         <tr>
-            <th>Teams</th>
-            <select [(ngModel)]="product.teams">
-                <option *ngFor="let t of teams" [value]="t">{{t.name}}</option>
-            </select>
-         </tr>
+        
     </tbody>
 </table>
 <button (click)="save()">Save</button>

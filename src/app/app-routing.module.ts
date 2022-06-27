@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { CreateComponent } from "./coaching/coach-create/create.component";
 import { EditComponent } from "./coaching/edit/edit.component";
+import { DailyscrumCreateComponent } from "./dailyscrum/dailyscrum-create/dailyscrum-create.component";
 import { ProductCreateComponent } from "./product/product-create/product-create.component";
 import { ProductDetailComponent } from "./product/product-detail/product-detail.component";
 import { ProductEditComponent } from "./product/product-edit/product-edit.component";
@@ -71,6 +72,8 @@ const routes: Routes = [
 
     {path: "sprintList/create/:id", component: SprintListCreateComponent},
     {path: "sprintList/edit/:id", component: SprintListEditComponent},
+    
+    {path: "dailyscrum/create/:id", component: DailyscrumCreateComponent},
     
     {path: "**", component: TeammemberListComponent}
 ];

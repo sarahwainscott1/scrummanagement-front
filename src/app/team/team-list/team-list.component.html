@@ -7,6 +7,7 @@
         <tr>
         <th><button id="column" (click)="sortFn('name')" class="btn btn-link">Team Name</button></th>
         <th>Team Members</th>
+        <th>Product</th>
         <th>Actions</th>
         </tr>
     </thead>
@@ -18,8 +19,10 @@
                     <li style="list-style-type: none;">{{x.teamMember.name}}</li>
                 </ul>
             </td>
+            <td>{{team.product.name ? team.product.name : "None Assigned"}}</td>
             <td>
                 <button routerLink="/team/detail/{{team.id}}">Detail</button>
+                <button routerLink="/team/edit/{{team.id}}">Edit</button>
                 <button (click)="remove(team.id)">Delete</button>
             </td>
         </tr>

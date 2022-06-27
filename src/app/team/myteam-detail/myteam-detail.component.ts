@@ -12,18 +12,19 @@ import { TeamService } from '../team.service';
 export class MyteamDetailComponent implements OnInit {
   team!: Team;
   isSM: boolean = false;
-    userid!: number
+    userid!: number;
   constructor(private tsvc: TeamService,
     private route: ActivatedRoute,
     private router: Router,
     private syssvc: SystemService) { }
 
   ngOnInit(): void {
-    let userid: number = +this.syssvc.getLoggedInUser()!.id;
+    this.userid = +this.syssvc.getLoggedInUser()!.id;
+    
     if(this.syssvc.getLoggedInUser()!.role == "Scrum Master") {
       this.isSM = true;
     }
-    this.tsvc.getmyteam(userid).subscribe({
+    this.tsvc.getmyteam(this.userid).subscribe({
       next: (res) => {this.team = res;},
       error: (err) => {console.error(err);}
     });

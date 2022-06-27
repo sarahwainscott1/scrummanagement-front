@@ -15,8 +15,8 @@ baseurl: string = "http://localhost:5230/api/sprints/"
   detail(id: number): Observable<Sprint> {
     return this.http.get(`${this.baseurl}${id}`) as Observable<Sprint>;
   }
-  getCurrentSprint(empId: number) :Observable<Sprint[]> {
-    return this.http.get(`${this.baseurl}currentsprint/${empId}`) as Observable<Sprint[]>;
+  getCurrentSprint(empId: number) :Observable<Sprint> {
+    return this.http.get(`${this.baseurl}currentsprint/${empId}`) as Observable<Sprint>;
   }
   create(sprint: Sprint): Observable<Sprint> {
     return this.http.post(`${this.baseurl}`, sprint) as Observable<Sprint>;

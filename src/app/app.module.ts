@@ -49,6 +49,7 @@ import { SortPipe } from './misc/pipes/sort.pipe';
 import { TeamSearchPipe } from './misc/pipes/team-search.pipe';
 import { TeamlistSearchPipe } from './misc/pipes/teamlist-search.pipe';
 import { ProductlistSearchPipe } from './misc/pipes/productlist-search.pipe';
+import { DailyscrumSearchPipe } from './misc/pipes/dailyscrum-search.pipe';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { ProductlistSearchPipe } from './misc/pipes/productlist-search.pipe';
     SortPipe,
     TeamSearchPipe,
     TeamlistSearchPipe,
-    ProductlistSearchPipe
+    ProductlistSearchPipe,
+    DailyscrumSearchPipe
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, RouterModule

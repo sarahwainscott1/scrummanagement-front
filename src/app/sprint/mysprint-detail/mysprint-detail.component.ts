@@ -11,20 +11,30 @@ import { SprintService } from '../sprint.service';
   styleUrls: ['./mysprint-detail.component.css']
 })
 export class MysprintDetailComponent implements OnInit {
-sprints!: Sprint[];
+sprint!: Sprint;
+sortColumn: string = "story.user";
+  sortAsc: boolean = true;
+  searchCriteria: string = "";
 
   constructor(
     private ssvc: SprintService,
     private syssvc: SystemService,
     private stsvc: StoryService
   ) { }
-
+  sortFn(column: string) :void {
+    if(column ===this.sortColumn) {
+      this.sortAsc = !this.sortAsc;
+      return;
+    }
+    this.sortColumn = column;
+    this.sortAsc = true;
+  }
   
   ngOnInit(): void {
     let empId: number = +this.syssvc.getLoggedInUser()!.id;
 
     this.ssvc.getCurrentSprint(empId).subscribe({
-      next: (res) => {this.sprints = res;
+      next: (res) => {this.sprint = res;
       console.debug(res);},
       error: (err) => {console.error(err);}
     });

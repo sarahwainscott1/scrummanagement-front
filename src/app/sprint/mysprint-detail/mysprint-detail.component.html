@@ -14,9 +14,9 @@
             <th>Stories</th>
         </tr>
     </thead>
-    <tbody *ngIf="sprints">
-        <tr *ngFor="let sprint of sprints">
-            <td>{{sprint.product.name}}</td>
+    <tbody *ngIf="sprint">
+        <tr>
+            <td *ngIf="sprint.product">{{sprint.product.name}}</td>
             <td>{{sprint.id}}</td>
             <td>{{sprint.sprintLength}}</td>
             <td>{{sprint.maxPoints}}</td>
@@ -55,6 +55,25 @@
                 </tbody>
                </table> 
             </td>
+        </tr>
+    </tbody>
+</table>
+<h4 >Daily Scrum</h4>
+<button *ngIf="sprint" routerLink="/dailyscrum/create/{{sprint.id}}">New Daily Scrum</button>
+<input type="text" [(ngModel)]="searchCriteria" placeholder="Search">
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Notes</th>
+            <th>Is Highlighted?</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="sprint.dailyScrums">
+        <tr *ngFor="let d of sprint.dailyScrums | dailyscrumSearch:searchCriteria">
+            <td>{{d.date}}</td>
+            <td>{{d.notes}}</td>
+            <td>{{d.isHighlighted ? "Yes" : "No"}}</td>
         </tr>
     </tbody>
 </table>

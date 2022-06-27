@@ -1,6 +1,6 @@
 button {
     margin-right: 10px;
-    background-color: rgb(212, 168, 241);
+    background-color: rgb(157, 155, 158);
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -12,7 +12,7 @@ button:hover {
 
 }
 head, body {
-background-color:rgb(196, 144, 226);
+background-color:rgb(219, 209, 224);
 }
 #column {
     text-decoration: none;

@@ -16,6 +16,7 @@ export class ProductEditComponent implements OnInit {
   product! : Product;
   people!: TeamMember[];
   teams!: Team[];
+  team!: Team;
 
   constructor(
     private tmsvc: TeammemberService,
@@ -27,7 +28,8 @@ export class ProductEditComponent implements OnInit {
     save(): void {
       this.psvc.change(this.product).subscribe({
         next: (res) => {console.debug("Product changed");
-      this.router.navigateByUrl("/product/list");},
+        
+        this.router.navigateByUrl("/product/list");},
       error: (err) => {console.error(err);}
       });
     }
